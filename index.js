@@ -16,7 +16,6 @@ const client = new Client({
     clientId: "my-bot",
     dataPath: "/tmp/session",
   }),
-  puppeteer: { args: ["--no-sandbox", "--disable-setuid-sandbox"] },
 });
 
 client.on("qr", (qr) => {
