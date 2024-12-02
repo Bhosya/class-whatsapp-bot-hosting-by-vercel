@@ -12,7 +12,10 @@ const db = require("./db");
 const { exec } = require("child_process");
 
 const client = new Client({
-  authStrategy: new LocalAuth({ dataPath: "session" }),
+  authStrategy: new LocalAuth({
+    clientId: "my-bot",
+    dataPath: "/tmp/session",
+  }),
   puppeteer: { args: ["--no-sandbox", "--disable-setuid-sandbox"] },
 });
 
