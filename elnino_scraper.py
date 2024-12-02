@@ -1,3 +1,4 @@
+import os
 import requests
 from bs4 import BeautifulSoup
 import mysql.connector
@@ -18,10 +19,10 @@ CHECK_INTERVAL = 600  # 10 menit
 # Koneksi ke database
 def connect_to_db():
     return mysql.connector.connect(
-        host="localhost",
-        user="root",  # Ganti dengan username MySQL Anda
-        password="",  # Ganti dengan password MySQL Anda
-        database="whatsapp_bot"  # Ganti dengan nama database Anda
+        host=os.getenv("DB_HOST"),
+        user=os.getenv("DB_USERNAME"),
+        password=os.getenv("DB_PASSWORD"),
+        database=os.getenv("DB_DBNAME"),
     )
 
 # Login ke Moodle
